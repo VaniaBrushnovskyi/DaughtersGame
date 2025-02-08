@@ -1,0 +1,38 @@
+//Colors
+$Main-Color: #000000;
+$Second-Color: #cccaca;
+$BG-Color: #878686;
+
+
+//Colors for displacement
+$Color-ladder: #00900c;
+$Color-snake: #e36d05;
+$Color-minus3: #1c1a1a;
+$Color-minus1: #e8b50d;
+
+//Any-colors
+
+
+
+@mixin dice_1-9 {
+    position: absolute;
+    width: 99px;
+    height: 99px;
+    display: grid;
+    gap: 0;
+    grid-template-rows: repeat(3, 33px);
+    grid-template-columns: repeat(3, 33px);
+}
+@mixin dot_1-6 {
+    background-color: #22265c;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 15px #ffffff;
+}
+@mixin forFutureHovers3 {
+
+}
+@mixin forFutureHovers3 {
+
+}

@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap');
+//base
+@import "./base/base";
+@import "./base/reset";
+@import "./base/vars";
+@import "./base/hover";
+
+//blocks
+@import "./blocks/main-field";
+@import "./blocks/section-1";
+@import "./blocks/section-2";
+@import "./blocks/section-3";
+@import "./blocks/section-4";

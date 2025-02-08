@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настільна гра</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <section class="main-field">
+<!-- section 1 -->
+        <section class="section-1" id="sections">
+            <div class="step step-1" title="Click!"><p>1</p></div>
+            <div class="step step-2" title="Click!"><p>2</p></div>
+            <div class="step step-3" title="Click!"><p>3</p></div>
+            <div class="step step-4" title="Click!" data-jump="5"><p>4</p></div>
+            <div class="step step-17" title="Click!" data-jump="25"><p>17</p></div>
+            <div class="step step-18" title="Click!" data-jump="6"><p>18</p></div>
+            <div class="step step-19" title="Click!" data-jump="20"><p>19</p></div>
+            <div class="step step-20" title="Click!"><p>20</p></div>
+            <div class="step step-21" title="Click!"><p>21</p></div>
+            <div class="step step-22" title="Click!"><p>22</p></div>
+            <div class="step step-23" title="Click!" data-jump="22"><p>23</p></div>
+            <div class="step step-24"><p>24</p></div>
+            <div class="section-1__start" id="start">
+                <div class="section-1__start_p1">
+                    <span class="player-1" id="player-1"></span>
+                </div>
+                <h2>START</h2>
+                <div class="section-1__start_p2">
+                    <span class="player-2" id="player-2"></span>
+                </div>
+            </div>
+        </section>
+<!-- section 2 -->
+        <section class="section-2" id="sections">
+            <div class="step step-5" title="Click!"><p>5</p></div>
+            <div class="step step-6" title="Click!"><p>6</p></div>
+            <div class="step step-7" title="Click!" data-jump="14"><p>7</p></div>
+            <div class="step step-8" title="Click!"><p>8</p></div>
+            <div class="step step-9" title="Click!"><p>9</p></div>
+            <div class="step step-10" title="Click!" data-jump="9"><p>10</p></div>
+            <div class="step step-11" title="Click!"><p>11</p></div>
+            <div class="step step-12" title="Click!" data-jump="9"><p>12</p></div>
+            <div class="step step-13" title="Click!"><p>13</p></div>
+            <div class="step step-14" title="Click!"><p>14</p></div>
+            <div class="step step-15" title="Click!" data-jump="5"><p>15</p></div>
+            <div class="step step-16" title="Click!"><p>16</p></div>
+        </section>
+<!-- section 3 -->
+        <section class="section-3" id="sections">
+            <div class="step step-32" title="Click!" data-jump="16"><p>32</p></div>
+            <div class="step step-33" title="Click!"><p>33</p></div>
+            <div class="step step-34" title="Click!" data-jump="41"><p>34</p></div>
+            <div class="step step-35" title="Click!"><p>35</p></div>
+            <div class="step step-36" title="Click!" data-jump="37"><p>36</p></div>
+            <div class="step step-37" title="Click!"><p>37</p></div>
+            <div class="step step-38" title="Click!" data-jump="35"><p>38</p></div>
+            <div class="step step-39" title="Click!"><p>39</p></div>
+            <div class="step step-40" title="Click!" data-jump="39"><p>40</p></div>
+            <div class="step step-41" title="Click!"><p>41</p></div>
+            <div class="step step-42" title="Click!" data-jump="39"><p>42</p></div>
+        </section>
+<!-- section 4 -->
+        <section class="section-4" id="sections">
+            <div class="step step-25" title="Click!"><p>25</p></div>
+            <div class="step step-26" title="Click!"><p>26</p></div>
+            <div class="step step-27" title="Click!" data-jump="24"><p>27</p></div>
+            <div class="step step-28" title="Click!"><p>28</p></div>
+            <div class="step step-29" title="Click!"><p>29</p></div>
+            <div class="step step-30" title="Click!" data-jump="26"><p>30</p></div>
+            <div class="step step-31" title="Click!"><p>31</p></div>
+            <div class="step step-43" title="Click!"><p>43</p></div>
+            <div class="step step-44" title="Click!"><p>44</p></div>
+            <div class="step step-45" title="Click!" data-jump="29"><p>45</p></div>
+            <div class="step step-46" title="Click!"><p>46</p></div>
+            <div class="step step-47" title="Click!" data-jump="44"><p>47</p></div>
+            <div class="step step-48" title="Click!"><p>48</p></div>
+            <div class="section-4__finish step" id="finish">
+                <h2>FINISH</h2></div>
+        </section>
+<!-- ladder -->
+        <div class="ladder-snake">
+            <div class="ladder-1">
+                <svg width="400" height="90" viewBox="-100 50 300 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs>
+                        <filter id="shadow" x="-45%" y="-45%" width="200%" height="200%">
+                            <feDropShadow dx="20" dy="20" stdDeviation="7" flood-color="#e5f3b7" flood-opacity="0.5"/>
+                        </filter>
+                    </defs>
+                    <g transform="rotate(92, 50, 150)" filter="url(#shadow)">
+                    <!-- Бокові стійки -->
+                    <rect x="10" y="10" width="10" height="280" fill="#49c311" />
+                    <rect x="95" y="10" width="10" height="280" fill="#49c311" />
+                    
+                    <!-- Сходинки (додано більше) -->
+                    <rect x="15" y="30" width="84" height="4" fill="#00900c" />
+                    <rect x="15" y="60" width="84" height="4" fill="#00900c" />
+                    <rect x="15" y="90" width="84" height="4" fill="#00900c" />
+                    <rect x="15" y="120" width="84" height="4" fill="#00900c" />
+                    <rect x="15" y="150" width="84" height="4" fill="#00900c" />
+                    <rect x="15" y="180" width="84" height="4" fill="#00900c" />
+                    <rect x="15" y="210" width="84" height="4" fill="#00900c" />
+                    <rect x="15" y="240" width="84" height="4" fill="#00900c" />
+                    <rect x="15" y="270" width="84" height="4" fill="#00900c" />
+                </g>
+                </svg>    
+            </div>
+            <div class="ladder-2">
+                <svg width="250" height="300" viewBox="-100 15 300 410" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs>
+                        <filter id="shadow2" x="-45%" y="-45%" width="200%" height="200%">
+                            <feDropShadow dx="10" dy="10" stdDeviation="6" flood-color="#e5f3b7" flood-opacity="0.5"/>
+                        </filter>
+                    </defs>
+                    <g transform="rotate(33, 50, 200)" filter="url(#shadow2)">
+                    <!-- Бокові стійки -->
+                    <rect x="10" y="10" width="7" height="380" fill="#49c311" />
+                    <rect x="55" y="10" width="7" height="380" fill="#49c311" />
+                    
+                    <!-- Сходинки (додано більше) -->
+                    <rect x="15" y="30" width="42" height="5" fill="#00900c" />
+                    <rect x="15" y="60" width="42" height="5" fill="#00900c" />
+                    <rect x="15" y="90" width="42" height="5" fill="#00900c" />
+                    <rect x="15" y="120" width="42" height="5" fill="#00900c" />
+                    <rect x="15" y="150" width="42" height="5" fill="#00900c" />
+                    <rect x="15" y="180" width="42" height="5" fill="#00900c" />
+                    <rect x="15" y="210" width="42" height="5" fill="#00900c" />
+                    <rect x="15" y="240" width="42" height="5" fill="#00900c" />
+                    <rect x="15" y="270" width="42" height="5" fill="#00900c" />
+                    <rect x="15" y="300" width="42" height="5" fill="#00900c" />
+                    <rect x="15" y="330" width="42" height="5" fill="#00900c" />
+                    <rect x="15" y="360" width="42" height="5" fill="#00900c" />
+                </g>
+                </svg> 
+            </div>
+            <div class="ladder-3">
+                <svg width="350" height="300" viewBox="-100 15 300 410" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs>
+                        <filter id="shadow3" x="-50%" y="-50%" width="200%" height="200%">
+                            <feDropShadow dx="10" dy="10" stdDeviation="6" flood-color="#e5f3b7" flood-opacity="0.5"/>
+                        </filter>
+                    </defs>
+                    <g transform="rotate(70, 50, 200)" filter="url(#shadow3)">
+                    <!-- Бокові стійки -->
+                    <rect x="10" y="30" width="6" height="320" fill="#49c311" />
+                    <rect x="51" y="30" width="6" height="320" fill="#49c311" />
+                    
+                    <!-- Сходинки (додано більше) -->
+                    <rect x="15" y="60" width="37" height="4" fill="#00900c" />
+                    <rect x="15" y="90" width="37" height="4" fill="#00900c" />
+                    <rect x="15" y="120" width="37" height="4" fill="#00900c" />
+                    <rect x="15" y="150" width="37" height="4" fill="#00900c" />
+                    <rect x="15" y="180" width="37" height="4" fill="#00900c" />
+                    <rect x="15" y="210" width="37" height="4" fill="#00900c" />
+                    <rect x="15" y="240" width="37" height="4" fill="#00900c" />
+                    <rect x="15" y="270" width="37" height="4" fill="#00900c" />
+                    <rect x="15" y="300" width="37" height="4" fill="#00900c" />
+                    <rect x="15" y="330" width="37" height="4" fill="#00900c" />
+                </g>
+                </svg> 
+            </div>
+            <div class="snake-1">
+                <svg width="300" height="500" xmlns="http://www.w3.org/2000/svg">
+                    <filter id="snake1" x="-45%" y="-45%" width="200%" height="200%">
+                        <feDropShadow dx="8" dy="10" stdDeviation="7" flood-color="#fa462e" flood-opacity="0.5"/>
+                    </filter>
+                    <g transform="rotate(-50, 350, 150)" filter="url(#snake1)">
+                        <path d="M -32 80 Q 60 40, 120 100 T 210 110 T 310 110" stroke="#e36d05" fill="transparent" stroke-width="10"/>
+                        <!-- Чорні плями -->
+                        <circle cx="60" cy="66" r="10" fill="black" stroke="white" stroke-dasharray="3"/>
+                        <circle cx="160" cy="130" r="7" fill="black" stroke="white" stroke-dasharray="3"/>
+                        <circle cx="260" cy="86" r="5" fill="black" stroke="white" stroke-dasharray="3"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="snake-2">
+                <svg width="350" height="500" xmlns="http://www.w3.org/2000/svg">
+                    <filter id="snake2" x="-45%" y="-45%" width="200%" height="200%">
+                        <feDropShadow dx="7" dy="10" stdDeviation="7" flood-color="#fa462e" flood-opacity="0.5"/>
+                    </filter>
+                    <g transform="rotate(10, 200, 150)" filter="url(#snake2)">
+                        <path d="M -152 50 Q 160 40, 120 100 T 210 110 T 310 50" stroke="#e36d05" fill="transparent" stroke-width="10"/>
+                        <!-- Чорні плями -->
+                        <circle cx="50" cy="55" r="10" fill="black" stroke="white" stroke-dasharray="3"/>
+                        <circle cx="160" cy="127" r="7" fill="black" stroke="white" stroke-dasharray="3"/>
+                        <circle cx="260" cy="90" r="5" fill="black" stroke="white" stroke-dasharray="3"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="snake-3">
+                <svg width="100" height="230" xmlns="http://www.w3.org/2000/svg">
+                    <filter id="snake3" x="-45%" y="-45%" width="200%" height="200%">
+                        <feDropShadow dx="7" dy="10" stdDeviation="7" flood-color="#fa462e" flood-opacity="0.5"/>
+                    </filter>
+                    <g transform="rotate(70, 50, 80)" filter="url(#snake3)">
+                        <path d="M -45 40 Q 100 150, 100 90 T 180 125 T 380 280" stroke="#e36d05" fill="transparent" stroke-width="10"/>
+                        <!-- Чорні плями -->
+                        <circle cx="50" cy="101" r="10" fill="black" stroke="white" stroke-dasharray="3"/>
+                        <circle cx="160" cy="103" r="7" fill="black" stroke="white" stroke-dasharray="3"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="snake-4">
+                <svg width="150" height="120" xmlns="http://www.w3.org/2000/svg">
+                    <filter id="snake4" x="-45%" y="-45%" width="200%" height="200%">
+                        <feDropShadow dx="7" dy="10" stdDeviation="7" flood-color="#fa462e" flood-opacity="0.5"/>
+                    </filter>
+                    <g transform="rotate(-5, 150, 50)" filter="url(#snake4)">
+                        <path d="M 20 90 Q 150 20, 155 200 T 280 110 T 310 110" stroke="#e36d05" fill="transparent" stroke-width="10"/>
+                        <!-- Чорні плями -->
+                        <circle cx="85" cy="71" r="10" fill="black" stroke="white" stroke-dasharray="3"/>
+
+                    </g>
+                </svg>
+            </div>
+            <div class="snake-5">                
+                <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <filter id="snake5" x="-45%" y="-45%" width="200%" height="200%">
+                        <feDropShadow dx="7" dy="10" stdDeviation="7" flood-color="#fa462e" flood-opacity="0.5"/>
+                    </filter>
+                <g transform="rotate(10, 50, 0)" filter="url(#snake5)">
+                    <path d="M 15 160 Q 45 110, 105 95 T 210 90 T 250 150" stroke="#e36d05" fill="transparent" stroke-width="10"/>
+                    <!-- Чорні плями -->
+                    <circle cx="60" cy="113" r="10" fill="black" stroke="white" stroke-dasharray="3"/>
+                    <circle cx="160" cy="87" r="7" fill="black" stroke="white" stroke-dasharray="3"/>
+                    <circle cx="243" cy="110" r="5" fill="black" stroke="white" stroke-dasharray="3"/>
+                </g>
+                </svg>
+            </div>
+            <div class="snake-6">
+                <svg width="500" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <filter id="snake6" x="-45%" y="-65%" width="200%" height="200%"><feDropShadow dx="7" dy="10" stdDeviation="7" flood-color="#fa462e" flood-opacity="0.5"/>
+                    </filter>
+                    <g transform="rotate(130, 115, 80)" filter="url(#snake6)">
+                        <path d="M 21 85 Q 120 65, 145 150 T 270 90 T 200 150" stroke="#e36d05" fill="transparent" stroke-width="10"/>
+                    <!-- Чорні плями -->
+                        <circle cx="144" cy="145" r="10" fill="black" stroke="white" stroke-dasharray="3"/>
+                        <circle cx="92" cy="89" r="7" fill="black" stroke="white" stroke-dasharray="3"/>
+                    </g>
+            </svg>
+            </div>
+        </div>
+        <div class="dice" id="dice">
+            <div class="dice-1">
+                <span class="dot-1"></span>
+                <span class="dot-2"></span>
+                <span class="dot-3"></span>
+                <span class="dot-4"></span>
+                <span class="dot-5"></span>
+                <span class="dot-6"></span>
+                <span class="dot-7"></span>
+                <span class="dot-8"></span>
+                <span class="dot-9"></span>
+            </div>
+            <div class="dice-2">
+                <span class="dot-1"></span>
+                <span class="dot-2"></span>
+                <span class="dot-3"></span>
+                <span class="dot-4"></span>
+                <span class="dot-5"></span>
+                <span class="dot-6"></span>
+                <span class="dot-7"></span>
+                <span class="dot-8"></span>
+                <span class="dot-9"></span>
+            </div>
+            <div class="dice-3">
+                <span class="dot-1"></span>
+                <span class="dot-2"></span>
+                <span class="dot-3"></span>
+                <span class="dot-4"></span>
+                <span class="dot-5"></span>
+                <span class="dot-6"></span>
+                <span class="dot-7"></span>
+                <span class="dot-8"></span>
+                <span class="dot-9"></span>
+            </div>
+            <div class="dice-4">
+                <span class="dot-1"></span>
+                <span class="dot-2"></span>
+                <span class="dot-3"></span>
+                <span class="dot-4"></span>
+                <span class="dot-5"></span>
+                <span class="dot-6"></span>
+                <span class="dot-7"></span>
+                <span class="dot-8"></span>
+                <span class="dot-9"></span>
+            </div>
+            <div class="dice-5">
+                <span class="dot-1"></span>
+                <span class="dot-2"></span>
+                <span class="dot-3"></span>
+                <span class="dot-4"></span>
+                <span class="dot-5"></span>
+                <span class="dot-6"></span>
+                <span class="dot-7"></span>
+                <span class="dot-8"></span>
+                <span class="dot-9"></span>
+            </div>
+            <div class="dice-6">
+                <span class="dot-1"></span>
+                <span class="dot-2"></span>
+                <span class="dot-3"></span>
+                <span class="dot-4"></span>
+                <span class="dot-5"></span>
+                <span class="dot-6"></span>
+                <span class="dot-7"></span>
+                <span class="dot-8"></span>
+                <span class="dot-9"></span>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script  src="js/players&jump.js"></script>
+    <script  src="js/dice-click.js"></script>
+</body>
+</html>

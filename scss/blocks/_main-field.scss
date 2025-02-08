@@ -1,0 +1,274 @@
+.main-field {
+    position: relative;
+    background: rgb(176,129,149);
+    background: radial-gradient(circle, rgba(176,129,149,1) 0%, rgba(113,143,179,1) 100%);
+    display: flex;
+    flex-wrap: wrap;
+    width: 1024px;
+    height: 768px;
+    min-width: 1024px;
+    overflow: hidden;
+}
+#sections {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    font-size: 27px;
+    overflow: hidden;
+}
+.step {
+    z-index: 4;
+    position: absolute;
+    background-color: $Second-Color;
+    color: $Main-Color;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    align-content: center;
+    border-radius: 50%;
+    border: 1.8px solid #000;
+    box-shadow: -5px 0px 15px #7b7182;
+}
+#player-1 {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    border-left: 29px solid transparent;
+    border-right: 29px solid transparent;
+    border-bottom: 38px solid #f700ff;
+}
+#player-2 {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    border-left: 29px solid transparent;
+    border-right: 29px solid transparent;
+    border-bottom: 38px solid #0059ff;
+}
+/* LADDER & SNAKE */
+.ladder-1 {
+    z-index: 1;
+    position: absolute;
+    top: 155px;
+    right: 87px;
+    height: 40px;
+    width: 305px;
+}
+.ladder-2 {
+    z-index: 1;
+    position: absolute;
+    bottom: 50px;
+    right: 326px;
+}
+.ladder-3 {
+    z-index: 1;
+    position: absolute;
+    top: 115px;
+    left: 92px;
+}
+.snake-1 {
+    z-index: 1;
+    position: absolute;
+    bottom: 149px;
+    right: 75px;
+}
+.snake-2 {
+    z-index: 1;
+    position: absolute;
+    bottom: 11px;
+    right: 39px;
+}
+.snake-3 {
+    z-index: 1;
+    position: absolute;
+    bottom: 100px;
+    left: 352px;
+}
+.snake-4 {
+    z-index: 1;
+    position: absolute;
+    bottom: 405px;
+    left: 461px;
+}
+.snake-5 {
+    z-index: 1;
+    position: absolute;
+    top: -88px;
+    left: 190px;
+}
+.snake-6 {
+    z-index: 1;
+    position: absolute;
+    bottom: 172px;
+    left: 128px;
+}
+/* DICE */
+.dice {
+    z-index: 2;
+    position: absolute;
+    top: 7%;
+    left: 47%;
+    background: linear-gradient(45deg, rgb(204, 131, 212), rgb(238, 241, 145));
+    width: 100px;
+    height: 100px;
+    transform-origin: center;
+    transition: transform 0.5s ease;
+    border-radius: 9px;
+    box-shadow: 0px 3px 15px #f2c7f5;
+    &-1 {
+        @include dice_1-9;
+        display: none;
+        .dot-5 {
+            @include dot_1-6;
+            display: flex;
+            align-self: center;
+            justify-self: center;
+        }
+    }
+    &-2 {
+        @include dice_1-9;
+        display: none;
+        .dot-3 {
+            @include dot_1-6;
+            display: flex;
+            align-self: end;
+        }
+        .dot-7 {
+            @include dot_1-6;
+            display: flex;
+            justify-self: end;
+        }
+    }
+    &-3 {
+        @include dice_1-9;
+        display: none;
+        .dot-3 {
+            @include dot_1-6;
+            display: flex;
+            align-self: end;
+        }
+        .dot-5 {
+            @include dot_1-6;
+            display: flex;
+            align-self: center;
+            justify-self: center;
+        }
+        .dot-7 {
+            @include dot_1-6;
+            display: flex;
+            justify-self: end;
+        }
+    }
+    &-4 {
+        @include dice_1-9;
+        display: none;
+        .dot-1 {
+            @include dot_1-6;
+            display: flex;
+            align-self: end;
+            justify-self: end;
+        }
+        .dot-3 {
+            @include dot_1-6;
+            display: flex;
+            align-self: end;
+        }
+        .dot-7 {
+            @include dot_1-6;
+            display: flex;
+            justify-self: end;
+        }
+        .dot-9 {
+            @include dot_1-6;
+            display: flex;
+            align-self: start;
+        }
+    }
+    &-5 {
+        @include dice_1-9;
+        display: none;
+        .dot-1 {
+            @include dot_1-6;
+            display: flex;
+            align-self: end;
+            justify-self: end;
+        }
+        .dot-3 {
+            @include dot_1-6;
+            display: flex;
+            align-self: end;
+        }
+        .dot-5 {
+            @include dot_1-6;
+            display: flex;
+            align-self: center;
+            justify-self: center;
+        }
+        .dot-7 {
+            @include dot_1-6;
+            display: flex;
+            justify-self: end;
+        }
+        .dot-9 {
+            @include dot_1-6;
+            display: flex;
+            align-self: start;
+        }
+    }
+    &-6 {
+        @include dice_1-9;
+        display: none;
+        .dot-1 {
+            @include dot_1-6;
+            display: flex;
+            align-self: end;
+            justify-self: end;
+        }
+        .dot-3 {
+            @include dot_1-6;
+            display: flex;
+            align-self: end;
+        }
+        .dot-4 {
+            @include dot_1-6;
+            display: flex;
+            align-self: center;
+            justify-self: end;
+        }
+        .dot-6 {
+            @include dot_1-6;
+            display: flex;
+            align-self: center;
+            justify-self: start;
+        }
+        .dot-7 {
+            @include dot_1-6;
+            display: flex;
+            justify-self: end;
+        }
+        .dot-9 {
+            @include dot_1-6;
+            display: flex;
+            align-self: start;
+        }
+    }
+}
+
+.dice-click {
+    animation: dice .7s ease-out forwards;
+}
+@keyframes dice {
+    from {
+        transform: rotate3d(1, 1, 0, 0deg);
+    }
+    to {
+        transform: rotate3d(1, 1, 1, 360deg);
+    }
+}
+.show-dice {
+    display: grid;
+}

@@ -1,0 +1,809 @@
+@import url("https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+body, html {
+  background-color: #000;
+  color: #fff;
+  font-family: "Belanosima", serif;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  /*     -webkit-user-select: none; */
+}
+
+/* Reset and base styles  */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Links */
+:link, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Common */
+aside, nav, footer, header, section, main {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul, ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button, input[type=submit] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+.step:hover {
+  cursor: pointer;
+}
+
+.player-1:hover {
+  cursor: grab;
+}
+
+.player-2:hover {
+  cursor: grab;
+}
+
+.dice:hover {
+  cursor: pointer;
+}
+
+.main-field {
+  position: relative;
+  background: rgb(176, 129, 149);
+  background: radial-gradient(circle, rgb(176, 129, 149) 0%, rgb(113, 143, 179) 100%);
+  display: flex;
+  flex-wrap: wrap;
+  width: 1024px;
+  height: 768px;
+  min-width: 1024px;
+  overflow: hidden;
+}
+
+#sections {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  font-size: 27px;
+  overflow: hidden;
+}
+
+.step {
+  z-index: 4;
+  position: absolute;
+  background-color: #cccaca;
+  color: #000000;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  align-content: center;
+  border-radius: 50%;
+  border: 1.8px solid #000;
+  box-shadow: -5px 0px 15px #7b7182;
+}
+
+#player-1 {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  border-left: 29px solid transparent;
+  border-right: 29px solid transparent;
+  border-bottom: 38px solid #f700ff;
+}
+
+#player-2 {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  border-left: 29px solid transparent;
+  border-right: 29px solid transparent;
+  border-bottom: 38px solid #0059ff;
+}
+
+/* LADDER & SNAKE */
+.ladder-1 {
+  z-index: 1;
+  position: absolute;
+  top: 155px;
+  right: 87px;
+  height: 40px;
+  width: 305px;
+}
+
+.ladder-2 {
+  z-index: 1;
+  position: absolute;
+  bottom: 50px;
+  right: 326px;
+}
+
+.ladder-3 {
+  z-index: 1;
+  position: absolute;
+  top: 115px;
+  left: 92px;
+}
+
+.snake-1 {
+  z-index: 1;
+  position: absolute;
+  bottom: 149px;
+  right: 75px;
+}
+
+.snake-2 {
+  z-index: 1;
+  position: absolute;
+  bottom: 11px;
+  right: 39px;
+}
+
+.snake-3 {
+  z-index: 1;
+  position: absolute;
+  bottom: 100px;
+  left: 352px;
+}
+
+.snake-4 {
+  z-index: 1;
+  position: absolute;
+  bottom: 405px;
+  left: 461px;
+}
+
+.snake-5 {
+  z-index: 1;
+  position: absolute;
+  top: -88px;
+  left: 190px;
+}
+
+.snake-6 {
+  z-index: 1;
+  position: absolute;
+  bottom: 172px;
+  left: 128px;
+}
+
+/* DICE */
+.dice {
+  z-index: 2;
+  position: absolute;
+  top: 7%;
+  left: 47%;
+  background: linear-gradient(45deg, rgb(204, 131, 212), rgb(238, 241, 145));
+  width: 100px;
+  height: 100px;
+  transform-origin: center;
+  transition: transform 0.5s ease;
+  border-radius: 9px;
+  box-shadow: 0px 3px 15px #f2c7f5;
+}
+.dice-1 {
+  position: absolute;
+  width: 99px;
+  height: 99px;
+  display: grid;
+  gap: 0;
+  grid-template-rows: repeat(3, 33px);
+  grid-template-columns: repeat(3, 33px);
+  display: none;
+}
+.dice-1 .dot-5 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+.dice-2 {
+  position: absolute;
+  width: 99px;
+  height: 99px;
+  display: grid;
+  gap: 0;
+  grid-template-rows: repeat(3, 33px);
+  grid-template-columns: repeat(3, 33px);
+  display: none;
+}
+.dice-2 .dot-3 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: end;
+}
+.dice-2 .dot-7 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  justify-self: end;
+}
+.dice-3 {
+  position: absolute;
+  width: 99px;
+  height: 99px;
+  display: grid;
+  gap: 0;
+  grid-template-rows: repeat(3, 33px);
+  grid-template-columns: repeat(3, 33px);
+  display: none;
+}
+.dice-3 .dot-3 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: end;
+}
+.dice-3 .dot-5 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+.dice-3 .dot-7 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  justify-self: end;
+}
+.dice-4 {
+  position: absolute;
+  width: 99px;
+  height: 99px;
+  display: grid;
+  gap: 0;
+  grid-template-rows: repeat(3, 33px);
+  grid-template-columns: repeat(3, 33px);
+  display: none;
+}
+.dice-4 .dot-1 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: end;
+  justify-self: end;
+}
+.dice-4 .dot-3 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: end;
+}
+.dice-4 .dot-7 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  justify-self: end;
+}
+.dice-4 .dot-9 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: start;
+}
+.dice-5 {
+  position: absolute;
+  width: 99px;
+  height: 99px;
+  display: grid;
+  gap: 0;
+  grid-template-rows: repeat(3, 33px);
+  grid-template-columns: repeat(3, 33px);
+  display: none;
+}
+.dice-5 .dot-1 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: end;
+  justify-self: end;
+}
+.dice-5 .dot-3 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: end;
+}
+.dice-5 .dot-5 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+.dice-5 .dot-7 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  justify-self: end;
+}
+.dice-5 .dot-9 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: start;
+}
+.dice-6 {
+  position: absolute;
+  width: 99px;
+  height: 99px;
+  display: grid;
+  gap: 0;
+  grid-template-rows: repeat(3, 33px);
+  grid-template-columns: repeat(3, 33px);
+  display: none;
+}
+.dice-6 .dot-1 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: end;
+  justify-self: end;
+}
+.dice-6 .dot-3 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: end;
+}
+.dice-6 .dot-4 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: center;
+  justify-self: end;
+}
+.dice-6 .dot-6 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: center;
+  justify-self: start;
+}
+.dice-6 .dot-7 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  justify-self: end;
+}
+.dice-6 .dot-9 {
+  background-color: #22265c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px #ffffff;
+  display: flex;
+  align-self: start;
+}
+
+.dice-click {
+  animation: dice 0.7s ease-out forwards;
+}
+
+@keyframes dice {
+  from {
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
+  to {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+.show-dice {
+  display: grid;
+}
+
+.section-1 {
+  order: 4;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.section-1__start {
+  position: absolute;
+  background-color: #574646;
+  right: 0;
+  bottom: 0;
+  height: 55px;
+  width: 180px;
+  display: flex;
+  justify-content: center;
+}
+.section-1__start_p1 {
+  position: relative;
+  right: 0;
+  width: 65px;
+  height: 55px;
+}
+.section-1__start_p2 {
+  position: relative;
+  right: 15px;
+  width: 65px;
+  height: 55px;
+}
+.section-1 .step-1 {
+  right: 21px;
+  bottom: 89px;
+}
+.section-1 .step-2 {
+  right: 7px;
+  bottom: 164px;
+}
+.section-1 .step-3 {
+  top: 77px;
+  right: 31px;
+}
+.section-1 .step-4 {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(0, 144, 12) 100%);
+  top: 4px;
+  right: 7px;
+}
+.section-1 .step-17 {
+  background: rgb(0, 144, 12);
+  background: radial-gradient(circle, rgb(0, 144, 12) 0%, rgb(255, 255, 255) 71%);
+  top: 7px;
+  left: 105px;
+}
+.section-1 .step-18 {
+  background: rgb(92, 52, 21);
+  background: linear-gradient(0deg, rgb(92, 52, 21) 0%, rgb(227, 109, 5) 50%, rgb(92, 52, 21) 100%);
+  top: 69px;
+  left: 155px;
+}
+.section-1 .step-19 {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(0, 144, 12) 100%);
+  top: 135px;
+  left: 200px;
+}
+.section-1 .step-20 {
+  top: 209px;
+  left: 230px;
+}
+.section-1 .step-21 {
+  left: 220px;
+  bottom: 28px;
+}
+.section-1 .step-22 {
+  left: 146px;
+  bottom: 2px;
+}
+.section-1 .step-23 {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(227, 109, 5) 100%);
+  left: 69px;
+  bottom: 16px;
+}
+.section-1 .step-24 {
+  left: 0px;
+  bottom: 50px;
+}
+
+.section-2 {
+  order: 2;
+}
+.section-2 .step-5 {
+  right: 31px;
+  bottom: 0;
+}
+.section-2 .step-6 {
+  right: 52px;
+  bottom: 76px;
+}
+.section-2 .step-7 {
+  background: rgb(0, 144, 12);
+  background: radial-gradient(circle, rgb(0, 144, 12) 0%, rgb(255, 255, 255) 71%);
+  right: 35px;
+  bottom: 153px;
+}
+.section-2 .step-8 {
+  right: 7px;
+  bottom: 226px;
+}
+.section-2 .step-9 {
+  top: 14px;
+  right: 35px;
+}
+.section-2 .step-10 {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(227, 109, 5) 100%);
+  top: 0;
+  right: 113px;
+}
+.section-2 .step-11 {
+  top: 6px;
+  right: 195px;
+}
+.section-2 .step-12 {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(41, 41, 41) 100%);
+  top: 33px;
+  right: 273px;
+}
+.section-2 .step-13 {
+  top: 83px;
+  left: 106px;
+}
+.section-2 .step-14 {
+  top: 155px;
+  left: 70px;
+}
+.section-2 .step-15 {
+  background: rgb(92, 52, 21);
+  background: linear-gradient(0deg, rgb(92, 52, 21) 0%, rgb(227, 109, 5) 50%, rgb(92, 52, 21) 100%);
+  top: 235px;
+  left: 66px;
+}
+.section-2 .step-16 {
+  left: 78px;
+  bottom: 0;
+}
+
+.section-3 {
+  order: 1;
+}
+.section-3 .step-32 {
+  background: rgb(92, 52, 21);
+  background: linear-gradient(0deg, rgb(92, 52, 21) 0%, rgb(227, 109, 5) 50%, rgb(92, 52, 21) 100%);
+  right: 0px;
+  bottom: 4px;
+}
+.section-3 .step-33 {
+  right: 5px;
+  bottom: 81px;
+}
+.section-3 .step-34 {
+  background: rgb(0, 144, 12);
+  background: radial-gradient(circle, rgb(0, 144, 12) 0%, rgb(255, 255, 255) 71%);
+  right: 30px;
+  bottom: 155px;
+}
+.section-3 .step-35 {
+  right: 70px;
+  bottom: 224px;
+}
+.section-3 .step-36 {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(0, 144, 12) 100%);
+  top: 53px;
+  left: 300px;
+}
+.section-3 .step-37 {
+  top: 34px;
+  left: 222px;
+}
+.section-3 .step-38 {
+  background: rgb(92, 52, 21);
+  background: linear-gradient(0deg, rgb(92, 52, 21) 0%, rgb(227, 109, 5) 50%, rgb(92, 52, 21) 100%);
+  top: 40px;
+  left: 142px;
+}
+.section-3 .step-39 {
+  top: 100px;
+  left: 90px;
+}
+.section-3 .step-40 {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(227, 109, 5) 100%);
+  top: 169px;
+  left: 50px;
+}
+.section-3 .step-41 {
+  left: 40px;
+  bottom: 68px;
+}
+.section-3 .step-42 {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(41, 41, 41) 100%);
+  left: 79px;
+  bottom: 0;
+}
+
+.section-4 {
+  order: 2;
+}
+.section-4__finish {
+  position: absolute;
+  background-color: #574646;
+  color: #cccaca;
+  font-size: 20px;
+  left: 0;
+  bottom: 0;
+  padding: 0 5px;
+}
+.section-4 .step-25 {
+  right: 8px;
+  bottom: 51px;
+}
+.section-4 .step-26 {
+  right: 87px;
+  bottom: 43px;
+}
+.section-4 .step-27 {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(41, 41, 41) 100%);
+  right: 160px;
+  bottom: 75px;
+}
+.section-4 .step-28 {
+  right: 181px;
+  bottom: 152px;
+}
+.section-4 .step-29 {
+  top: 88px;
+  right: 152px;
+}
+.section-4 .step-30 {
+  background: rgb(92, 52, 21);
+  background: linear-gradient(0deg, rgb(92, 52, 21) 0%, rgb(227, 109, 5) 50%, rgb(92, 52, 21) 100%);
+  top: 38px;
+  right: 89px;
+}
+.section-4 .step-31 {
+  top: 3px;
+  right: 16px;
+}
+.section-4 .step-43 {
+  top: 0px;
+  left: 117px;
+}
+.section-4 .step-44 {
+  top: 72px;
+  left: 93px;
+}
+.section-4 .step-45 {
+  background: rgb(92, 52, 21);
+  background: linear-gradient(0deg, rgb(92, 52, 21) 0%, rgb(227, 109, 5) 50%, rgb(92, 52, 21) 100%);
+  top: 144px;
+  left: 68px;
+}
+.section-4 .step-46 {
+  top: 209px;
+  left: 109px;
+}
+.section-4 .step-47 {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(41, 41, 41) 100%);
+  left: 160px;
+  bottom: 46px;
+}
+.section-4 .step-48 {
+  left: 97px;
+  bottom: 0;
+}/*# sourceMappingURL=main.css.map */

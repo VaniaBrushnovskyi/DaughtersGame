@@ -1,0 +1,73 @@
+.section-4 {
+    order: 2;
+    &__finish {
+        position: absolute;
+        background-color: #574646;
+        color: $Second-Color;
+        font-size: 20px;
+        left: 0;
+        bottom: 0;
+        padding: 0 5px;
+    }
+    .step-25 {
+        right: 8px;
+        bottom: 51px;
+    }
+    .step-26 {
+        right: 87px;
+        bottom: 43px;
+    }
+    .step-27 {
+        background: rgb(255,255,255);
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(41,41,41,1) 100%);
+        right: 160px;
+        bottom: 75px;
+    }
+    .step-28 {
+        right: 181px;
+        bottom: 152px;
+    }
+    .step-29 {
+        top: 88px;
+        right: 152px;
+    }
+    .step-30 {
+        background: rgb(92,52,21);
+        background: linear-gradient(0deg, rgba(92,52,21,1) 0%, rgba(227,109,5,1) 50%, rgba(92,52,21,1) 100%);
+        top: 38px;
+        right: 89px;
+    }
+    .step-31 {
+        top: 3px;
+        right: 16px;
+    }
+    .step-43 {
+        top: 0px;
+        left: 117px;
+    }
+    .step-44 {
+        top: 72px;
+        left: 93px;
+    }
+    .step-45 {
+        background: rgb(92,52,21);
+        background: linear-gradient(0deg, rgba(92,52,21,1) 0%, rgba(227,109,5,1) 50%, rgba(92,52,21,1) 100%);
+        top: 144px;
+        left: 68px;
+    }
+    .step-46 {
+        top: 209px;
+        left: 109px;
+    }
+    .step-47 {
+        background: rgb(255,255,255);
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(41,41,41,1) 100%);
+        left: 160px;
+        bottom: 46px;
+    }
+    .step-48 {
+        left: 97px;
+        bottom: 0;
+    }
+
+}
