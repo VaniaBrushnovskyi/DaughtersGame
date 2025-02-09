@@ -1,3 +1,4 @@
+/* при відкритті робить вікно за заданим розміром */
 window.addEventListener("load", () => {
     const wWidth = 1024;
     const wHeight = 768;
